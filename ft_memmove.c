@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/02 01:49:46 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/04 04:00:17 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/04 04:06:18 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/04 04:38:37 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void		*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	size_t	l;
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
-	l = 0;
-	while (dst[l] && l < dstsize)
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	i = 0;
+	if (s < d)
 	{
-		l++;
+		while (len-- > 0)
+		{
+			d[len] = s[len];
+		}
 	}
-	i = l;
-	while (l + 1 < dstsize && src[l - i])
-	{
-		dst[l] = src[l - i];
-		l++;
-	}
-	if (i < dstsize)
-		dst[l] = '\0';
-	return (i + ft_strlen(src));
+	else
+		while (i < len)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	return (dst);
 }
