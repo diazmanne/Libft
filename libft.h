@@ -6,7 +6,7 @@
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 00:28:09 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/04 04:39:57 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/04 19:03:53 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
+void			*ft_memchr(const void *s, int c, size_t n);
+int				ft_memcmp(const void *s1, const void s2, size_t n);
 #endif
