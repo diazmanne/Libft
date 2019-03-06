@@ -6,11 +6,16 @@
 /*   By: emdiaz <emdiaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 21:53:21 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/02/21 15:16:59 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/05 23:55:31 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include "libft.h"
+
+int		ft_isalnum(int c)
 {
-	return (((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) || ((c >= 48 && c <= 57) ) ? 1 : 0);
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	else
+		return (0);
 }
