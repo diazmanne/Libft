@@ -6,7 +6,7 @@
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 04:40:40 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/04 17:56:30 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/06 19:44:59 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void		*ft_memchr(const void *s, int c, size_t n)
 		if (str[i] == (unsigned char)c)
 		{
 			return ((void *)(&str[i]));
-			i++;
 		}
+		i++;
 	}
 	return (NULL);
 }
