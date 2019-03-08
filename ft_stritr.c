@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_stritr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emdiaz <emdiaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/06 14:59:10 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/07 16:24:15 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/07 23:48:35 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/08 01:26:40 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_memdel(void **ap)
+void		ft_stritr(char *s, void (*f)(char *))
 {
-	if (ap && *ap)
-		free(*ap);
-	*ap = NULL;
+	size_t	i;
+
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i] && f[i])
+	{
+		f(&s[i]);
+	}
 }

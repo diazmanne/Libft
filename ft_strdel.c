@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emdiaz <emdiaz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/06 14:59:10 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/07 16:24:15 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/07 16:53:35 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/07 17:00:56 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_memdel(void **ap)
+void		ft_strdel(**xy)
 {
-	if (ap && *ap)
-		free(*ap);
-	*ap = NULL;
+	if (ft_memdel(void **)xy)
+		return (NULL);
 }
