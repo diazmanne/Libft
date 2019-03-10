@@ -6,7 +6,7 @@
 /*   By: emdiaz <emdiaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 00:28:09 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 21:20:29 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/09 18:31:01 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,8 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+int				ft_count_words(const char *s, int i, char c);
+int				ft_find_word(const char *str, int i, char **ret, char c);
+char			*ft_strtrim(char const *s);
+int				ft_isspace(const int c);
 #endif

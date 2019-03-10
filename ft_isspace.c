@@ -6,13 +6,13 @@
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 20:58:01 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 20:58:44 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/09 18:08:19 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(const int c)
+int		ft_isspace(const int c)
 {
 	int	x;
 

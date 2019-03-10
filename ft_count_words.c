@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 20:59:43 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/09 18:04:01 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/09 17:18:11 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/09 17:57:55 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+int		ft_count_words(const char *s, int i, char c)
 {
-	char	**r;
-	int		i;
-	int		x;
-	int		l;
+	int w;
 
-	if (!s)
-		return (NULL);
-	x = ft_count_words(s, 0, c);
-	r = (char **)ft_memalloc((x + 1) * sizeof(char *));
-	l = 0;
-	if (!r)
-		return (NULL);
 	i = 0;
-	l = 0;
-	while (*s)
+	w = 0;
+	while (s[i])
 	{
-		l = ft_find_word(s, i++, r, c);
-		s += l;
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
+			w++;
+		while (s[i] != c && s[i])
+			i++;
 	}
-	r[x] = 0;
-	return (r);
+	return (w);
 }

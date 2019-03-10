@@ -6,7 +6,7 @@
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 21:05:58 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 21:06:05 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/09 18:48:50 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strtrim(char const *s)
 		l++;
 	while (*(s + x++))
 		t = ft_isspace(*(s + x - 1)) ? t + 1 : 0;
-	ret = ft_strnew(ft_strlen(s) - t - l);
+	r = ft_strnew(ft_strlen(s) - t - l);
 	if (!r)
 		return (NULL);
 	return (ft_strncpy(r, s + l, ft_strlen(s) - t - l));
