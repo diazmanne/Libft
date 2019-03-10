@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 02:24:36 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 21:38:58 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/08 20:35:49 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/08 20:46:08 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	l;
-	size_t	i;
-	char	*s2;
-	char	r;
+	char	*s;
 
-	s2 = ft_strdup(s);
-	if (s2 == NULL)
-		return (s2);
-	l = ft_strlen(s2);
-	i = 0;
-	while (i < l)
-	{
-		r = f((unsigned int)i, s2[i]);
-		s2[i] = r;
-		i++;
-	}
-	return (s2);
+	if (!s1 || !s2)
+		return (NULL);
+	if (!(s = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
+		return (NULL);
+	ft_strcpy(s, s1);
+	ft_strcat(s, s2);
+	return (s);
 }

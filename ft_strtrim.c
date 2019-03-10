@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 02:24:36 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 21:38:58 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/08 21:05:58 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/08 21:06:05 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strtrim(char const *s)
 {
-	size_t	l;
-	size_t	i;
-	char	*s2;
-	char	r;
+	char	*r;
+	int		l;
+	int		t;
+	int		x;
 
-	s2 = ft_strdup(s);
-	if (s2 == NULL)
-		return (s2);
-	l = ft_strlen(s2);
-	i = 0;
-	while (i < l)
-	{
-		r = f((unsigned int)i, s2[i]);
-		s2[i] = r;
-		i++;
-	}
-	return (s2);
+	if (!s)
+		return (NULL);
+	x = -1;
+	l = 0;
+	t = 0;
+	while (ft_isspace(*(s + ++x)))
+		l++;
+	while (*(s + x++))
+		t = ft_isspace(*(s + x - 1)) ? t + 1 : 0;
+	ret = ft_strnew(ft_strlen(s) - t - l);
+	if (!r)
+		return (NULL);
+	return (ft_strncpy(r, s + l, ft_strlen(s) - t - l));
 }

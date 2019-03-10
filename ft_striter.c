@@ -5,18 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/07 18:45:27 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 01:53:35 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/09 16:54:55 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/09 16:55:04 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void		ft_striter(char *s, void (*f)(char *))
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-
 	if (s && f)
 		while (s[i])
-			f(&s[i++]);
+		{
+			f(&s[i]);
+			i++;
+		}
 }

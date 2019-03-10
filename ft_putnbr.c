@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 02:24:36 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 21:38:58 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/08 17:57:13 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/08 19:10:46 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void		ft_putnbr(int nbr)
 {
-	size_t	l;
-	size_t	i;
-	char	*s2;
-	char	r;
+	char	c;
 
-	s2 = ft_strdup(s);
-	if (s2 == NULL)
-		return (s2);
-	l = ft_strlen(s2);
-	i = 0;
-	while (i < l)
+	if (nbr == -2147483648)
+		write(1, "-2147483648", 11);
+	else
 	{
-		r = f((unsigned int)i, s2[i]);
-		s2[i] = r;
-		i++;
+		if (nbr < 0)
+		{
+			write(1, "-", 1);
+			nbr = (nbr * -1);
+		}
+		if (nbr > 9)
+		{
+			ft_putchar(nbr / 10);
+			nbr = nbr % 10;
+		}
+		c = nbr + '0';
+		write(1, &c, 1);
 	}
-	return (s2);
 }

@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 02:24:36 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 21:38:58 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/08 20:59:43 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/08 21:03:00 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	**ft_strsplit(char const *s, char c)
 {
-	size_t	l;
-	size_t	i;
-	char	*s2;
-	char	r;
+	char	**r;
+	int		i;
+	int		x;
+	int		l;
 
-	s2 = ft_strdup(s);
-	if (s2 == NULL)
-		return (s2);
-	l = ft_strlen(s2);
+	if (!s)
+		return (NULL);
+	x = ft_count_words(s, 0, c);
+	r = (char **)ft_memalloc((x + 1) * sizeof(char *));
+	l = 0;
+	if (!r)
+		return (NULL);
 	i = 0;
-	while (i < l)
+	l = 0;
+	while (*s)
 	{
-		r = f((unsigned int)i, s2[i]);
-		s2[i] = r;
-		i++;
+		l = ft_find_word(s, i++, r, c);
+		s += l;
 	}
-	return (s2);
+	ret[x] = 0;
+	return (r);
 }

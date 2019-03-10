@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 02:24:36 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 21:38:58 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/08 20:28:05 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/08 20:30:48 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	size_t	l;
 	size_t	i;
-	char	*s2;
-	char	r;
 
-	s2 = ft_strdup(s);
-	if (s2 == NULL)
-		return (s2);
-	l = ft_strlen(s2);
+	if (!s1 || !s2)
+		return (0);
 	i = 0;
-	while (i < l)
+	while (s1[i] && s2[i] && i < n)
 	{
-		r = f((unsigned int)i, s2[i]);
-		s2[i] = r;
+		if (s1[i] != s2[i])
+			return (0);
 		i++;
 	}
-	return (s2);
+	return (1);
 }
