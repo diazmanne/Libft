@@ -6,7 +6,7 @@
 /*   By: emdiaz <emdiaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 19:37:55 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/02/26 01:23:13 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/06 23:54:55 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int		ft_strcmp(const char *s1, const char *s2)
 
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
-	{
 		i++;
-	}
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

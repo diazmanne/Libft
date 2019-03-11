@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/16 17:13:47 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/06 19:04:37 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/09 17:18:11 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/09 17:57:55 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int		ft_count_words(const char *s, int i, char c)
 {
-	char	*s;
-	char	*d;
-	size_t	i;
+	int w;
 
 	i = 0;
-	s = (char *)src;
-	d = (char *)dst;
-	while (i < n)
+	w = 0;
+	while (s[i])
 	{
-		d[i] = s[i];
-		i++;
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
+			w++;
+		while (s[i] != c && s[i])
+			i++;
 	}
-	return (dst);
+	return (w);
 }

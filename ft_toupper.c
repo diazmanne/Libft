@@ -6,11 +6,13 @@
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 12:46:48 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/02/19 12:59:37 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/05 23:59:23 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-int	ft_toupper(int c)
+
+#include "libft.h"
+
+int		ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 	{
@@ -18,13 +20,3 @@ int	ft_toupper(int c)
 	}
 	return (c);
 }
-
-int main()
-{
-	int x;
-
-	x = 'i';
-	printf("%d", ft_toupper(x));
-	return 0;
-}
-

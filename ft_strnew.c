@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/16 17:13:47 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/06 19:04:37 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/06 15:55:09 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/06 23:51:20 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char		*ft_strnew(size_t size)
 {
-	char	*s;
-	char	*d;
-	size_t	i;
-
-	i = 0;
-	s = (char *)src;
-	d = (char *)dst;
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
+	return (ft_memalloc((size + 1) * sizeof(char)));
 }

@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/16 17:13:47 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/06 19:04:37 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/08 20:35:49 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/08 20:46:08 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s;
-	char	*d;
-	size_t	i;
 
-	i = 0;
-	s = (char *)src;
-	d = (char *)dst;
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
+	if (!s1 || !s2)
+		return (NULL);
+	if (!(s = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
+		return (NULL);
+	ft_strcpy(s, s1);
+	ft_strcat(s, s2);
+	return (s);
 }

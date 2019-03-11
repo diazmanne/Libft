@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/16 17:13:47 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/06 19:04:37 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/08 04:04:54 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/09 19:21:11 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	char	*s;
-	char	*d;
-	size_t	i;
+	int	i;
 
 	i = 0;
-	s = (char *)src;
-	d = (char *)dst;
-	while (i < n)
+	if (!s1 || !s2)
+		return (0);
+	while (s1[i] == s2[i])
 	{
-		d[i] = s[i];
+		if (s1[i] == '\0' && s2[i] == '\0')
+			return (1);
 		i++;
 	}
-	return (dst);
+	return (0);
 }

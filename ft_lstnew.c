@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 13:16:54 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/06 00:03:20 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/10 18:25:27 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/10 18:39:52 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(int c)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	return (c >= 32 && c <= 126 ? 1 : 0);
+	t_list *tp;
+
+	if (!(tp = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	if (content == NULL)
+	{
+		tp->content = NULL;
+		tp->content_size = 0;
+		tp->next = NULL;
+		return (tp);
+	}
+	if (!(tp->content = (void*)malloc(content_size)))
+		return (NULL);
+	ft_memcpy(tp->content, content, content_size);
+	tp->content_size = content_size;
+	tp->next = NULL;
+	return (tp);
 }

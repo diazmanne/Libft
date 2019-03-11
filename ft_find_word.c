@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_find_word.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/16 17:13:47 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/06 19:04:37 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/09 17:47:56 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/09 18:02:05 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int		ft_find_word(const char *str, int i, char **ret, char c)
 {
-	char	*s;
-	char	*d;
-	size_t	i;
+	int		l;
+	int		spc;
 
-	i = 0;
-	s = (char *)src;
-	d = (char *)dst;
-	while (i < n)
+	spc = 0;
+	l = 0;
+	while (*str == c)
 	{
-		d[i] = s[i];
-		i++;
+		str++;
+		spc++;
 	}
-	return (dst);
+	while (str[l] && str[l] != c)
+		l++;
+	if (l > 0)
+	{
+		ret[i] = ft_strnew(l);
+		ft_strncpy(ret[i], str, l);
+	}
+	return (spc + l);
 }

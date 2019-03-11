@@ -6,28 +6,34 @@
 /*   By: emdiaz <emdiaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 15:18:34 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/02/21 19:35:18 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/06 23:57:15 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_atoi(const char *str)
-{
-    int r;
-    int i;    
-    int s;
+#include "libft.h"
 
-    r = 0;
-    i = 0;
-    s = 1;
-    if (str[0] == '-')
-    {
-        s = -1;
-        i++;
-    }
-    while (str[i] != '\0')
-    {
-        r = r * 10 + str[i] - '0';
-        i++;
-        }
-        return (r*s);
-    }
+int		ft_atoi(const char *str)
+{
+	int		r;
+	int		i;
+	int		s;
+
+	r = 0;
+	i = 0;
+	s = 1;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
+			|| str[i] == '\v' || str[i] == '\f')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			s = -1;
+		str++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		r = r * 10 + str[i] - '0';
+		i++;
+	}
+	return (r * s);
+}

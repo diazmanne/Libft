@@ -6,24 +6,17 @@
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 12:37:20 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/02/19 12:46:26 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/06 00:07:59 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 	{
-		c = c + 32;  
+		c = c + 32;
 	}
 	return (c);
-}
-
-int main()
-{
-	int c;
-	c = 'G';
-	printf("%d", ft_tolower(c));
-	return 0;
 }
