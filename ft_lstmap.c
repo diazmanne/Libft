@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 02:00:29 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/11 00:38:17 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/10 21:11:19 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/10 23:16:46 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+t_list		*ft_lstmap(t_list *lst, t_list *(f)(t_list *elem))
 {
-	char	*map;
-	int		i;
+	t_list	*h;
 
-	i = 0;
-	if (s)
+	if (lst)
 	{
-		while (s[i])
-			i++;
-		if (!(map = (char *)malloc(sizeof(char) * (i + 1))))
-			return (NULL);
-		i = 0;
-		while (s[i])
-		{
-			map[i] = (*f)(s[i]);
-			i++;
-		}
-		map[i] = '\0';
-		return (map);
+		h = f(lst);
+		h->next = ft_lstmap(lst->next, f);
+		return (h);
 	}
 	return (NULL);
 }

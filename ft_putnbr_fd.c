@@ -6,29 +6,31 @@
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/09 20:22:01 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/09 20:22:43 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/11 00:32:09 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void		ft_putnbr_fd(int nbr, int fd)
 {
-	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
-	}
-	else if (n < 9)
-	{
-		n += 48;
-		ft_putchar_fd(n, fd);
-	}
+	char	c;
+
+	if (nbr == -2147483648)
+		write(fd, "-2147483648", sizeof("-2147483648"));
 	else
 	{
-		ft_putnbr_fd((n / 10), fd);
-		ft_putnbr_fd((n % 10), fd);
+		if (nbr < 0)
+		{
+			write(fd, "-", 1);
+			nbr = (nbr * -1);
+		}
+		if (nbr > 9)
+		{
+			ft_putnbr_fd(nbr / 10, fd);
+			nbr = nbr % 10;
+		}
+		c = nbr + '0';
+		write(fd, &c, 1);
 	}
 }

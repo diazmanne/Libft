@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 02:24:36 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/08 21:38:58 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/10 23:53:40 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/10 23:53:45 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,22 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	l;
-	size_t	i;
-	char	*s2;
-	char	r;
+	size_t		i;
+	char		*tmp;
 
-	s2 = ft_strdup(s);
-	if (s2 == NULL)
-		return (s2);
-	l = ft_strlen(s2);
 	i = 0;
-	while (i < l)
+	if (!s || !f)
+		return (NULL);
+	tmp = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (tmp)
 	{
-		r = f((unsigned int)i, s2[i]);
-		s2[i] = r;
-		i++;
+		while (s[i])
+		{
+			tmp[i] = f(i, s[i]);
+			i++;
+		}
+		tmp[i] = '\0';
+		return (tmp);
 	}
-	return (s2);
+	return (NULL);
 }

@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 02:00:29 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/11 00:38:17 by emdiaz           ###   ########.fr       */
+/*   Created: 2019/03/10 18:25:27 by emdiaz            #+#    #+#             */
+/*   Updated: 2019/03/10 18:39:52 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char	*map;
-	int		i;
+	t_list *tp;
 
-	i = 0;
-	if (s)
+	if (!(tp = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	if (content == NULL)
 	{
-		while (s[i])
-			i++;
-		if (!(map = (char *)malloc(sizeof(char) * (i + 1))))
-			return (NULL);
-		i = 0;
-		while (s[i])
-		{
-			map[i] = (*f)(s[i]);
-			i++;
-		}
-		map[i] = '\0';
-		return (map);
+		tp->content = NULL;
+		tp->content_size = 0;
+		tp->next = NULL;
+		return (tp);
 	}
-	return (NULL);
+	if (!(tp->content = (void*)malloc(content_size)))
+		return (NULL);
+	ft_memcpy(tp->content, content, content_size);
+	tp->content_size = content_size;
+	tp->next = NULL;
+	return (tp);
 }
