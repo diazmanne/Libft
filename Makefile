@@ -6,7 +6,7 @@
 #    By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/10 22:31:35 by emdiaz            #+#    #+#              #
-#    Updated: 2019/03/10 23:36:31 by emdiaz           ###   ########.fr        #
+#    Updated: 2019/03/11 01:47:54 by emdiaz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ FLAGS = -Wall -Wextra -Werror -I .
 NAME = libft.a
 
 SOURCES = ft_toupper.c\
+		  ft_addition.c\
+		  ft_swap_double.c\
 		  ft_tolower.c\
 		  ft_isprint.c\
 		  ft_isascii.c\

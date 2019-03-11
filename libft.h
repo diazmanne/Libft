@@ -6,7 +6,7 @@
 /*   By: emdiaz <emdiaz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 00:28:09 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/10 23:36:35 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/03/11 01:46:36 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,6 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list*elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void			ft_swap_double(double *n1, double *n2);
+int				ft_addition(int n, int n2);
 #endif
