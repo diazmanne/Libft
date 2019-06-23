@@ -6,7 +6,7 @@
 /*   By: emdiaz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 19:21:14 by emdiaz            #+#    #+#             */
-/*   Updated: 2019/03/04 03:58:59 by emdiaz           ###   ########.fr       */
+/*   Updated: 2019/06/22 16:11:01 by emdiaz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,10 @@ char		*ft_strchr(const char *s, int c)
 	while (*s)
 	{
 		if (*s == c)
-		{
 			return ((char *)s);
-		}
 		++s;
 	}
 	if (c == '\0')
-	{
-		return ((char *)s);
-	}
+		return (NULL);
 	return (0);
 }
