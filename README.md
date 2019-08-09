@@ -1,4 +1,4 @@
-![](rsrc/img/gnl.gif)
+![](rsc/img/libft_Dr.gif)
 # Libft
 
 A C library is a set of named functions, for example dbinit() or SQLConnect(). Or, for that matter, fopen(3)[1].
